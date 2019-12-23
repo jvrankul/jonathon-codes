@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  mode: 'spa',
   layoutTransition: {
     name: 'layout',
     mode: 'out-in'
