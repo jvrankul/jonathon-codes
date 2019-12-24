@@ -3,12 +3,18 @@
     class="p-8 flex min-h-screen max-w-80 bg-primary text-white justify-center"
   >
     <div class="max-w-4xl">
-      <h1 class="text-3xl text-center font-semibold">Projects</h1>
-      <div v-for="(project, i) in projects" :key="i">
-        <div class="mt-4 mb-12">
+      <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
+        <div class="heading">Projects</div>
+      </div>
+      <div
+        class="bg-white mb-8 px-6 py-4 text-dark rounded-lg shadow-lg hover:shadow-2xl"
+        v-for="(project, i) in projects"
+        :key="i"
+      >
+        <div>
           <h2 class="text-2xl text-semibold">{{ project.name }}</h2>
           <div
-            class="inline-flex bg-dark rounded-full py-1 px-4 mr-2 text-xs mt-2 mb-4"
+            class="inline-flex bg-dark rounded-full py-1 px-4 mr-2 text-xs mt-2 mb-4 text-white"
             v-for="(tag, i) in project.tags"
             :key="i"
           >
@@ -44,7 +50,7 @@ export default {
           img: 'lovebot-city.gif',
           url: '',
           description:
-            'A generative art simulation, demonstrating the organic growth of cities by simulating people and behaviour.'
+            'A generative art simulation, demonstrating the organic growth of cities by simulating people and behaviour. Based on the city of Prato, Italy.'
         },
         {
           name: 'Nourish',
@@ -59,3 +65,22 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.heading {
+  position: relative;
+}
+.heading:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: -10px;
+  top: 15px;
+  bottom: -5px;
+  border: 2px solid #89c7b4;
+  border-right-width: 2px;
+  border-left-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 2px;
+}
+</style>

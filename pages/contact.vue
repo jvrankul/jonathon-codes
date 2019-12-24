@@ -1,11 +1,21 @@
 <template>
   <div class="p-8 flex min-h-screen bg-primary text-white justify-center">
     <div class="max-w-4xl">
-      <h1 class="text-3xl text-center font-semibold">Contact</h1>
-      <div v-for="(section, i) in sections" :key="i">
-        <div class="mt-4 mb-12">
-          <h2 class="text-2xl text-semibold">{{ section.title }}</h2>
-          <p class="text-lg font-light">{{ section.content }}</p>
+      <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
+        <div class="heading">Digital CV</div>
+      </div>
+      <div class="flex central">
+        <div
+          class="card self-center bg-white px-6 py-4 text-dark rounded-lg shadow-lg hover:shadow-2xl hover:underline"
+          v-for="(section, i) in sections"
+          :key="i"
+        >
+          <div>
+            <a v-bind:href="section.link" target="_blank">
+              <h2 class="text-2xl text-semibold">{{ section.title }}</h2>
+              <p class="text-lg font-light">{{ section.content }}</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -18,8 +28,9 @@ export default {
     return {
       sections: [
         {
-          title: 'LinkedIN',
-          content: 'Reach me on LinkedIN at linkedin.com/in/jvrankul',
+          title: 'Coming soon!',
+          content:
+            'This page is still being prepared. In the meantime, click here to visit me on LinkedIN!',
           link: 'https://linkedin.com/in/jvrankul',
           icon: ''
         }
@@ -28,3 +39,29 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.heading {
+  position: relative;
+}
+.heading:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: -10px;
+  top: 15px;
+  bottom: -5px;
+  border: 2px solid #89c7b4;
+  border-right-width: 2px;
+  border-left-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 2px;
+}
+.card {
+  text-decoration-color: #89c7b4;
+}
+
+.central {
+  min-height: 80%;
+}
+</style>
