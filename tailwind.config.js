@@ -20,6 +20,12 @@ module.exports = {
       '3/4': '75%',
       '1/3': '33.33%'
     },
+    minHeight: {
+      full: '100vh',
+      screen: '100vh',
+      '3/4': '75vh',
+      '1/3': '30vh'
+    },
     screens: {
       xs: '360px',
       md: '768px',

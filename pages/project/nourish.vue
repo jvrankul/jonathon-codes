@@ -2,6 +2,11 @@
   <div
     class="projects p-8 flex min-h-screen max-w-80 bg-primary text-white justify-center"
   >
+    <font-awesome-icon
+      class="fixed top-0 left-0 mt-8 ml-8 text-2xl cursor-pointer hover:opacity-75"
+      :icon="['fas', 'arrow-left']"
+      v-on:click="back"
+    />
     <div class="max-w-4xl">
       <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
         <div class="heading">Nourish</div>
@@ -28,6 +33,11 @@ export default {
         'Nourish is a sustainable eating companion mobile app. It allows users to scan product barcodes to reveal sustainability information about the scanned product. The app was written in react-native, for a group university project.',
       team: ['Jonathon Vrankul', 'Sebastien Bailouni', 'Mladjen Tomic'],
       img: '/nourish.png'
+    }
+  },
+  methods: {
+    back() {
+      this.$router.back()
     }
   }
 }

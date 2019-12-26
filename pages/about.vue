@@ -1,5 +1,10 @@
 <template>
   <div class="about p-8 flex min-h-screen bg-primary text-white justify-center">
+    <font-awesome-icon
+      class="fixed top-0 left-0 mt-8 ml-8 text-2xl cursor-pointer hover:opacity-75"
+      :icon="['fas', 'arrow-left']"
+      v-on:click="back"
+    />
     <div class="max-w-4xl">
       <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
         <div class="heading">About</div>
@@ -42,6 +47,11 @@ export default {
           link: 'https://github.com/jvrankul/jonathon-codes'
         }
       ]
+    }
+  },
+  methods: {
+    back() {
+      this.$router.back()
     }
   }
 }

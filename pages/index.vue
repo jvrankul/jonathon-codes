@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="m-0 flex xs:flex-col lg:flex-row min-w-screen min-h-screen text-white text-center align-center justify-center"
-  >
+  <div>
     <div
       class="fixed self-start z-10 top-0 left-0 text-white justify-center text-3xl mb-8 text-center font-semibold"
     >
@@ -10,22 +8,26 @@
       </div>
     </div>
     <div
-      class="menu-wrapper flex lg:min-w-1/3 lg:min-h-screen justify-center items-center bg-primary opacity-100 hover:bg-primaryLight"
-      v-for="(page, i) in pages"
-      :key="i"
+      class="m-0 flex xs:justify-around xs:flex-col xs:min-h-screen lg:flex-row min-w-screen text-white text-center align-center lg:justify-center"
     >
-      <nuxt-link
-        class="min-h-screen min-w-full"
-        v-bind:key="page"
-        :to="page.link"
-        prefetch
+      <div
+        class="flex xs:min-h-1/3 xs:mt-20 lg:mt-0 lg:min-w-1/3 lg:justify-center items-center bg-primary opacity-100 hover:bg-primaryLight"
+        v-for="(page, i) in pages"
+        :key="i"
       >
-        <div
-          class="flex page-header min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
+        <nuxt-link
+          class="menu-item max-h-screen min-w-full"
+          v-bind:key="page"
+          :to="page.link"
+          prefetch
         >
-          {{ page.name }}
-        </div>
-      </nuxt-link>
+          <div
+            class="flex page-header lg:min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
+          >
+            {{ page.name }}
+          </div>
+        </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -124,5 +126,8 @@ export default {
 }
 .page-header {
   text-decoration-color: #89c7b4;
+}
+.menu-item {
+  color: white;
 }
 </style>
