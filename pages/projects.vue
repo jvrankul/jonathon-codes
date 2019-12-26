@@ -7,11 +7,16 @@
         <div class="heading">Projects</div>
       </div>
       <div
-        class="bg-white mb-8 px-6 py-4 text-dark rounded-lg shadow-lg hover:shadow-2xl"
+        class="bg-white mb-8 px-6 py-4 text-dark rounded-lg shadow-lg cursor-pointer hover:shadow-2xl"
         v-for="(project, i) in projects"
         :key="i"
       >
-        <div>
+        <nuxt-link
+          class="min-h-screen min-w-full"
+          v-bind:key="page"
+          :to="'project/' + project.key"
+          prefetch
+        >
           <h2 class="text-2xl text-semibold">{{ project.name }}</h2>
           <div
             class="inline-flex bg-dark rounded-full py-1 px-4 mr-2 text-xs mt-2 mb-4 text-white"
@@ -21,7 +26,7 @@
             {{ tag.name }}
           </div>
           <p class="text-lg font-light">{{ project.description }}</p>
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -37,22 +42,25 @@ export default {
     return {
       projects: [
         {
+          key: 'pocket',
           name: 'Pocket',
-          tags: [{ name: 'react-native' }, { name: 'banking' }],
+          tags: [{ name: 'react-native' }, { name: 'tailwind-css' }],
           img: 'nourish.png',
           url: '',
           description:
             'An extension for banking apps written in react-native which took 1st place during The Accenture Hackathon 2019, Melbourne.'
         },
         {
+          key: 'lovebots',
           name: 'lovebot.city',
-          tags: [{ name: 'pixi-js' }, { name: 'javascript' }],
+          tags: [{ name: 'javascript' }, { name: 'pixi-js' }],
           img: 'lovebot-city.gif',
           url: '',
           description:
             'A generative art simulation, demonstrating the organic growth of cities by simulating people and behaviour. Based on the city of Prato, Italy.'
         },
         {
+          key: 'nourish',
           name: 'Nourish',
           tags: [{ name: 'react-native' }],
           img: 'nourish.png',
@@ -113,7 +121,7 @@ export default {
   left: 10px;
   right: -10px;
   top: 15px;
-  bottom: -5px;
+  bottom: -2px;
   border: 2px solid #89c7b4;
   border-right-width: 2px;
   border-left-width: 0;

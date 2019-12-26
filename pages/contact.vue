@@ -89,7 +89,7 @@ export default {
   left: 10px;
   right: -10px;
   top: 15px;
-  bottom: -5px;
+  bottom: -2px;
   border: 2px solid #89c7b4;
   border-right-width: 2px;
   border-left-width: 0;

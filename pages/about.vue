@@ -28,17 +28,17 @@ export default {
         {
           title: 'Who am I?',
           content:
-            "Hi, my name is Jonathon. I am a recent university graduate and Software Developer living in Melbourne, Australia. This site simply showcases some of the projects I've worked on. In future I plan to add some short courses, videos and articles on various coding / tech topics."
+            "Hi, my name is Jonathon. I'm a recent university graduate and Software Developer living in Melbourne, Australia. This site showcases some of the projects I've worked on. In future I plan to add tutorials, videos and articles on various coding / tech topics."
         },
         {
           title: 'Background',
           content:
-            'I studied an Information Technology degree at Monash University in Melbourne, Australia. There I discovered my passion for the endless problem-solving fun of coding. Currently I am really enjoying front-end and mobile development + design. I build web apps and mobile apps. Currently I am really enjoying React, Vue, and react-native'
+            "I studied an Information Technology degree at Monash University in Melbourne, Australia. There I discovered my passion for the endless problem-solving fun of coding. Currently I'm really into front-end and mobile app development."
         },
         {
           title: 'This website',
           content:
-            'I built this app in my spare time using Nuxt.js for Vue, with Tailwind CSS. Want to learn more? Click here to view the source code on GitHub.',
+            'I built this app using Nuxt, a Vue.js framework. Want to learn more? Click here to view the source code on GitHub.',
           link: 'https://github.com/jvrankul/jonathon-codes'
         }
       ]
@@ -94,7 +94,7 @@ export default {
   left: 10px;
   right: -10px;
   top: 15px;
-  bottom: -5px;
+  bottom: -2px;
   border: 2px solid #89c7b4;
   border-right-width: 2px;
   border-left-width: 0;

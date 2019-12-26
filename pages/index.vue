@@ -10,7 +10,7 @@
       </div>
     </div>
     <div
-      class="menu-wrapper flex lg:min-w-1/3 lg:min-h-screen justify-center items-center bg-primary opacity-100 hover:opacity-75"
+      class="menu-wrapper flex lg:min-w-1/3 lg:min-h-screen justify-center items-center bg-primary opacity-100 hover:bg-primaryLight"
       v-for="(page, i) in pages"
       :key="i"
     >
@@ -21,7 +21,7 @@
         prefetch
       >
         <div
-          class="flex page-header min-h-screen justify-center items-center text-4xl hover:underline"
+          class="flex page-header min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
         >
           {{ page.name }}
         </div>
@@ -115,7 +115,7 @@ export default {
   left: 10px;
   right: -10px;
   top: 15px;
-  bottom: -5px;
+  bottom: -2px;
   border: 2px solid #89c7b4;
   border-right-width: 2px;
   border-left-width: 0;

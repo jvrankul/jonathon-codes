@@ -1,6 +1,28 @@
 <template>
   <div class="bg-primary">
     <nuxt />
+    <div
+      class="flex fixed w-full justify-between items-center text-white py-4 px-6 bottom-0"
+    >
+      <div>
+        <span class="font-light italic">jonathon.codes</span>
+        <span class="font-semibold">by Jonathon Vrankul</span>
+      </div>
+      <div class="inline-flex text-3xl">
+        <a href="https://linkedin.com/in/jvrankul" target="_blank">
+          <font-awesome-icon
+            class="mr-3 hover:opacity-75"
+            :icon="['fab', 'linkedin']"
+          />
+        </a>
+        <a href="https://github.com/jvrankul" target="_blank">
+          <font-awesome-icon
+            class="hover:opacity-75"
+            :icon="['fab', 'github']"
+          />
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
