@@ -74,6 +74,38 @@ export default {
 </script>
 
 <style scoped>
+/* Transitions using the page hook */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease-out;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform-origin: 50% 50%;
+}
+/* .contact {
+  font-family: 'Indie Flower', cursive;
+  padding: 50px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.about {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 500px;
+}
+.projects {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 500px;
+} */
+
 .heading {
   position: relative;
 }

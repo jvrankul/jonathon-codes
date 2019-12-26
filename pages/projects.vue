@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-8 flex min-h-screen max-w-80 bg-primary text-white justify-center"
+    class="projects p-8 flex min-h-screen max-w-80 bg-primary text-white justify-center"
   >
     <div class="max-w-4xl">
       <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
@@ -67,6 +67,43 @@ export default {
 </script>
 
 <style scoped>
+.page-enter {
+  opacity: 0;
+}
+.page-enter-to {
+  opacity: 1;
+}
+.page-leave {
+  opacity: 1;
+}
+.page-leave-to {
+  opacity: 0;
+}
+.page-enter-active {
+  transition: opacity 0.5s ease;
+  animation: acrossIn 0.3s ease-out both;
+}
+.page-leave-active {
+  transition: opacity 0.3s ease;
+  animation: acrossOut 0.3s ease-in both;
+}
+@keyframes acrossIn {
+  0% {
+    transform: translate3d(-20%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes acrossOut {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-20%, 0, 0);
+  }
+}
+
 .heading {
   position: relative;
 }
