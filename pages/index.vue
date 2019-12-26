@@ -16,13 +16,13 @@
         :key="i"
       >
         <nuxt-link
-          class="menu-item max-h-screen min-w-full"
+          class="xs:min-h-1/3 menu-item max-h-screen min-w-full"
           v-bind:key="page"
           :to="page.link"
           prefetch
         >
           <div
-            class="flex page-header lg:min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
+            class="flex page-header xs:min-h-1/3 lg:min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
           >
             {{ page.name }}
           </div>

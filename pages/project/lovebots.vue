@@ -2,12 +2,14 @@
   <div
     class="projects p-8 flex min-h-screen max-w-80 bg-primary text-white justify-center"
   >
-    <font-awesome-icon
-      class="fixed top-0 left-0 mt-8 ml-8 text-2xl cursor-pointer hover:opacity-75"
-      :icon="['fas', 'arrow-left']"
-      v-on:click="back"
-    />
     <div class="max-w-4xl">
+      <div class="fixed top-0 left-0 mt-8 ml-8 h-5 w-5">
+        <font-awesome-icon
+          class="text-2xl cursor-pointer hover:opacity-75 xs:mt-2"
+          :icon="['fas', 'arrow-left']"
+          v-on:click="back"
+        />
+      </div>
       <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
         <div class="heading">lovebot.city</div>
       </div>
