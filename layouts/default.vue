@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary">
     <nuxt />
-    <div
+    <!-- <div
       class="flex fixed w-full justify-between items-center text-white py-4 px-6 bottom-0"
     >
       <div>
@@ -22,7 +22,7 @@
           />
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
