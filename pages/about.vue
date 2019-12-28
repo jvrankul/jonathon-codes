@@ -8,10 +8,12 @@
           v-on:click="back"
         />
       </div>
-      <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
+      <div
+        class="section flex justify-center text-3xl mb-8 text-center font-semibold"
+      >
         <div class="heading">About</div>
       </div>
-      <div v-for="(section, i) in sections" :key="i">
+      <div class="section" v-for="(section, i) in sections" :key="i">
         <div v-if="section.link" class="mt-4 mb-12 hover:opacity-75">
           <a v-bind:href="section.link" target="_blank">
             <h2 class="text-2xl text-semibold">{{ section.title }}</h2>
@@ -45,11 +47,21 @@ export default {
         {
           title: 'This website',
           content:
-            'I built this app using Nuxt, a Vue.js framework. Want to learn more? Click here to view the source code on GitHub.',
+            'I built this app using Nuxt, a Vue.js framework. Animations are a combination of pure CSS and the Anime.js library. Want to learn more? Click here to view the source code on GitHub.',
           link: 'https://github.com/jvrankul/jonathon-codes'
         }
       ]
     }
+  },
+  mounted() {
+    this.$anime({
+      targets: '.section',
+      opacity: [0, 1],
+      translateX: [-55, 0],
+      easing: 'easeOutQuad',
+      duration: 400,
+      delay: this.$anime.stagger(400)
+    })
   },
   methods: {
     back() {

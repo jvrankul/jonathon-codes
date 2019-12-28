@@ -10,17 +10,19 @@
           v-on:click="back"
         />
       </div>
-      <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
+      <div
+        class="content-item flex justify-center text-3xl mb-8 text-center font-semibold"
+      >
         <div class="heading">Nourish</div>
       </div>
-      <div class="text-center">{{ copy }}</div>
-      <div class="text-center font-bold mt-8">
+      <div class="content-item text-center">{{ copy }}</div>
+      <div class="content-item text-center font-bold mt-8">
         The team:
         <span class="block font-light" v-for="(member, i) in team" :key="i">{{
           member
         }}</span>
       </div>
-      <div class="flex mt-8 justify-center">
+      <div class="content-item flex mt-8 justify-center">
         <img class="rounded-lg" :src="img" />
       </div>
     </div>
@@ -36,6 +38,16 @@ export default {
       team: ['Jonathon Vrankul', 'Sebastien Bailouni', 'Mladjen Tomic'],
       img: '/nourish.png'
     }
+  },
+  mounted() {
+    this.$anime({
+      targets: '.content-item',
+      opacity: [0, 1],
+      translateX: [-55, 0],
+      easing: 'easeOutQuad',
+      duration: 400,
+      delay: this.$anime.stagger(400)
+    })
   },
   methods: {
     back() {

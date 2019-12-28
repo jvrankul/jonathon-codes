@@ -10,17 +10,19 @@
           v-on:click="back"
         />
       </div>
-      <div class="flex justify-center text-3xl mb-8 text-center font-semibold">
+      <div
+        class="content-item flex justify-center text-3xl mb-8 text-center font-semibold"
+      >
         <div class="heading">lovebot.city</div>
       </div>
-      <div class="text-center">{{ copy }}</div>
-      <div class="text-center font-bold mt-8">
+      <div class="content-item text-center">{{ copy }}</div>
+      <div class="content-item text-center font-bold mt-8">
         The team:
         <span class="block font-light" v-for="(member, i) in team" :key="i">{{
           member
         }}</span>
       </div>
-      <div class="flex flex-col mt-8 justify-center items-center">
+      <div class="content-item flex flex-col mt-8 justify-center items-center">
         <a :href="link" target="_blank">
           <img class="rounded-lg" :src="img" />
         </a>
@@ -45,6 +47,16 @@ export default {
       img: '/lovebots.png',
       link: 'https://lovebotcity.bailouni.com/'
     }
+  },
+  mounted() {
+    this.$anime({
+      targets: '.content-item',
+      opacity: [0, 1],
+      translateX: [-55, 0],
+      easing: 'easeOutQuad',
+      duration: 400,
+      delay: this.$anime.stagger(400)
+    })
   },
   methods: {
     back() {

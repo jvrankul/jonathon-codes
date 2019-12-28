@@ -22,9 +22,25 @@
           prefetch
         >
           <div
-            class="flex page-header xs:min-h-1/3 lg:min-h-screen justify-center items-center text-4xl hover:font-semibold hover:underline"
+            class="flex page-header xs:min-h-1/3 lg:min-h-screen justify-center items-center text-4xl hover:font-semibold"
+            @mouseenter="(event) => mouseEnter(event, page.link)"
+            @mouseleave="mouseLeave(page.link)"
           >
-            {{ page.name }}
+            <div class="flex flex-col">
+              <span class="flex flex-col" :class="`page-link-${page.link}`">
+                {{ page.name }}
+                <div
+                  class="bg-accent h-1 w-0 self-center"
+                  :class="`${page.link}-underline`"
+                ></div>
+              </span>
+              <span
+                class="link-copy text-sm font-light hidden-text no-underline"
+                :class="page.link"
+              >
+                {{ page.copy }}
+              </span>
+            </div>
           </div>
         </nuxt-link>
       </div>
@@ -33,6 +49,7 @@
 </template>
 
 <script>
+import anime from 'animejs'
 export default {
   data() {
     return {
@@ -50,7 +67,7 @@ export default {
         {
           name: 'About',
           copy:
-            'Curious? Click here to learn a bit about me, and also a bit about how I built this site.',
+            'Curious? Click here to learn a bit about me, and how I built this site.',
           link: 'about'
         }
       ]
@@ -68,9 +85,58 @@ export default {
       opacity: [0, 1],
       translateZ: 0,
       easing: 'easeOutExpo',
-      duration: 950,
-      delay: (el, i) => 70 * i
+      duration: 1,
+      delay: (el, i) => 1 * i
     })
+  },
+  methods: {
+    mouseEnter(event, link) {
+      const wrapper = document.querySelector(`.${link}`)
+      wrapper.classList.remove('hidden-text')
+
+      anime({
+        targets: `.${link}-underline`,
+        width: {
+          value: '+=200',
+          duration: 600,
+          easing: 'easeOutExpo'
+        }
+      })
+
+      anime({
+        targets: `.${link}`,
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 2000
+      })
+
+      anime({
+        targets: `.page-link-${link}`,
+        translateY: -20,
+        easing: 'easeOutQuint',
+        duration: 800
+      })
+    },
+    mouseLeave: (link) => {
+      const wrapper = document.querySelector(`.${link}`)
+      wrapper.classList.add('hidden-text')
+
+      anime({
+        targets: `.${link}-underline`,
+        width: {
+          value: '-=200',
+          duration: 200,
+          easing: 'easeOutExpo'
+        }
+      })
+
+      anime({
+        targets: `.page-link-${link}`,
+        translateY: 20,
+        easing: 'easeOutQuint',
+        duration: 800
+      })
+    }
   }
 }
 </script>
@@ -86,27 +152,6 @@ export default {
   opacity: 0;
   transform-origin: 50% 50%;
 }
-/* .contact {
-  font-family: 'Indie Flower', cursive;
-  padding: 50px;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-.about {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 500px;
-}
-.projects {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 500px;
-} */
 
 .heading {
   position: relative;
@@ -129,5 +174,14 @@ export default {
 }
 .menu-item {
   color: white;
+}
+.page-header .link-copy {
+  text-decoration: none;
+}
+.hidden-text {
+  display: none;
+}
+.visible {
+  display: block;
 }
 </style>

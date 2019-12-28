@@ -14,8 +14,11 @@
         <div class="heading">Projects</div>
       </div>
       <div
-        class="bg-white mb-8 px-6 py-4 text-dark rounded-lg shadow-lg cursor-pointer hover:shadow-2xl"
+        class="card bg-white mb-8 px-6 py-4 text-dark rounded-lg shadow-lg cursor-pointer hover:shadow-2xl"
         v-for="(project, i) in projects"
+        :class="`${project.key}-card`"
+        @mouseenter="(event) => cardHoverEnter(event, project.key)"
+        @mouseleave="(event) => cardHoverLeave(event, project.key)"
         :key="i"
       >
         <nuxt-link
@@ -78,9 +81,35 @@ export default {
       ]
     }
   },
+  mounted() {
+    this.$anime({
+      targets: '.card',
+      opacity: [0, 1],
+      translateX: [-55, 0],
+      easing: 'easeOutQuad',
+      duration: 400,
+      delay: this.$anime.stagger(400)
+    })
+  },
   methods: {
     back() {
       this.$router.back()
+    },
+    cardHoverEnter(event, cardName) {
+      this.$anime({
+        targets: `.${cardName}-card`,
+        scale: [1, 1.05],
+        easing: 'easeOutCubic',
+        duration: 300
+      })
+    },
+    cardHoverLeave(event, cardName) {
+      this.$anime({
+        targets: `.${cardName}-card`,
+        scale: 1,
+        easing: 'easeOutCubic',
+        duration: 300
+      })
     }
   }
 }
